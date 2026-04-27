@@ -1,162 +1,81 @@
-# 🧠 Projeto de Cabeamento Estruturado – Pequena Empresa
+# RELATÓRIO DE PROJETO DE CABEAMENTO ESTRUTURADO – PEQUENA EMPRESA
 
-> 📌 Implementação de infraestrutura de rede estruturada com foco em organização, desempenho e escalabilidade.
+1. Introdução
+Este projeto apresenta a implementação de uma rede de cabeamento estruturado para uma empresa de pequeno porte, contemplando duas salas de informática com seis com-putadores cada, além de áreas administrativas e de convivência. O objetivo é garantir organização, desempenho, escalabilidade e padronização da infraestrutura de rede.
 
----
+2. Estrutura Física da Rede
+A empresa foi dividida nos seguintes ambientes:
+•	Entrada de Facilidades
+•	Sala de Equipamentos
+•	Sala de Telecomunicações
+•	Sala de Informática 1
+•	Sala de Informática 2
+•	Sala de Reuniões e Alimentação
+•	WC
+Cada ambiente foi planejado de forma a atender às necessidades de conectividade e or-ganização do cabeamento estruturado.
 
-## 📖 Introdução
+3. Entrada de Facilidades
+Neste ambiente ocorre a chegada do link de internet proveniente da operadora, utili-zando fibra óptica (Link ISP). Os seguintes componentes foram utilizados:
+•	Caixa de Terminação Óptica (CTO)
+•	ONU/ONT (conversor de fibra óptica para Ethernet)
+A partir da ONU, o sinal é convertido para cabo metálico (Ethernet) e encaminhado ao roteador.
 
-Este projeto apresenta a implementação de uma rede de cabeamento estruturado para uma empresa de pequeno porte, contemplando:
-
-* 🖥️ Duas salas de informática (6 computadores cada)
-* 🏢 Áreas administrativas
-* ☕ Área de convivência
-
-🎯 **Objetivo:** Garantir organização, desempenho, escalabilidade e padronização da rede.
-
----
-
-## 🏗️ Estrutura Física da Rede
-
-Ambientes planejados:
-
-* 🚪 Entrada de Facilidades
-* 🖥️ Sala de Equipamentos
-* 🔌 Sala de Telecomunicações
-* 💻 Sala de Informática 1
-* 💻 Sala de Informática 2
-* ☕ Sala de Reuniões e Alimentação
-* 🚻 WC
-
----
-
-## 🌐 Entrada de Facilidades
-
-📡 Recebimento do link de internet via **fibra óptica (ISP)**
-
-**Componentes:**
-
-* 📦 Caixa de Terminação Óptica (CTO)
-* 🔄 ONU/ONT (Fibra → Ethernet)
-
-➡️ Conversão para cabo de rede e envio ao roteador.
-
----
-
-## 🖥️ Sala de Equipamentos
-
-**Dispositivos:**
-
-* 🌐 Roteador
-* 🔥 Firewall
-* 🔀 Switch (24 portas)
-* 🗄️ Servidor
-
-### 🔁 Fluxo da rede:
-
-```bash
+4. Sala de Equipamentos
+A Sala de Equipamentos centraliza os principais dispositivos da rede:
+Roteador
+Firewall
+Switch principal (Layer 2 – 24 portas)
+Servidor
+O fluxo de conexão segue a seguinte ordem:
 ONU → Roteador → Firewall → Switch → Servidor
-```
+O cabeamento utilizado neste ambiente é do tipo UTP Cat6, representado na cor verme-lha, com espessura fina, caracterizando conexões internas (patch cords).
 
-### 🔌 Cabeamento:
+5. Cabeamento Backbone (Vertical)
+O backbone interliga a Sala de Equipamentos à Sala de Telecomunicações.
+Tipo: Fibra Óptica
+Cor: Amarelo
+Espessura: Grossa
+Esse enlace é responsável por transportar grandes volumes de dados com alta veloci-dade e baixa interferência, sendo essencial para a comunicação entre os pontos centrais da rede.
 
-* Tipo: UTP Cat6
-* Cor: 🔴 Vermelho
-* Uso: conexões internas (patch cords)
+6. Sala de Telecomunicações
+Neste ambiente foram instalados:
+Switch secundário (Layer 2)
+Patch Panel
+O switch recebe o backbone e distribui o sinal para o patch panel, que organiza as cone-xões do cabeamento horizontal.
 
----
+7. Cabeamento Horizontal
+O cabeamento horizontal conecta a Sala de Telecomunicações às áreas de trabalho.
+Tipo: UTP Cat6
+Cor: Vermelho
+Espessura: Fina
+Cada ponto de rede possui cabeamento dedicado, garantindo melhor desempenho e evi-tando compartilhamento indevido de conexão.
 
-## 🔗 Backbone (Vertical)
+8. Área de Trabalho (Salas de Informática)
+Cada sala de informática possui:
+6 computadores
+Tomadas RJ45 duplas distribuídas estrategicamente
+Foram utilizadas tomadas com duas portas RJ45, permitindo conectar dois dispositivos por ponto. Cada porta possui um cabo exclusivo até o patch panel, totalizando dois ca-bos por tomada.
+Também foram previstos pontos adicionais para expansão futura.
 
-Interligação entre salas principais:
+9. Rede Wireless (Access Point)
+Foi implementado um Access Point na sala de reuniões e alimentação, com o objetivo de fornecer acesso Wi-Fi para dispositivos móveis, como notebooks e smartphones.
+Conexão: UTP Cat6
+Ligação: Switch da Sala de Telecomunicações
+Função: Disponibilizar rede sem fio restrita à área comum
+Opcionalmente, o equipamento pode operar com tecnologia PoE (Power over Ethernet).
 
-* Tipo: Fibra Óptica
-* Cor: 🟡 Amarelo
-* Espessura: Grossa
+10. Padronização de Cores
+Para facilitar a identificação dos tipos de conexão, foi adotado o seguinte padrão:
 
-🚀 Alta velocidade + baixa interferência
+Azul: Link de Internet (ISP)
+Amarelo: Backbone (Fibra Óptica)
+Vermelho: Cabeamento interno (UTP Cat6)
+Essa padronização contribui para organização, manutenção e identificação rápida da re-de.
 
----
-
-## 🧩 Sala de Telecomunicações
-
-Equipamentos:
-
-* 🔀 Switch secundário
-* 🧱 Patch Panel
-
-📌 Responsável por distribuir o cabeamento horizontal.
-
----
-
-## 🔌 Cabeamento Horizontal
-
-* Tipo: UTP Cat6
-* Cor: 🔴 Vermelho
-* Conexão dedicada por ponto
-
-✔️ Melhor desempenho
-✔️ Organização
-✔️ Sem compartilhamento indevido
-
----
-
-## 💻 Área de Trabalho
-
-Cada sala contém:
-
-* 🖥️ 6 computadores
-* 🔌 Tomadas RJ45 duplas
-
-📌 Cada ponto possui:
-
-* 2 portas
-* 2 cabos independentes
-
-📈 Preparado para expansão futura
-
----
-
-## 📡 Rede Wireless
-
-📍 Local: Sala de reuniões
-
-* 📶 Access Point
-* 🔌 Ligado ao switch
-* 📡 Wi-Fi para dispositivos móveis
-
-💡 Suporte opcional: **PoE**
-
----
-
-## 🎨 Padronização de Cores
-
-| Cor         | Função         |
-| ----------- | -------------- |
-| 🔵 Azul     | Internet (ISP) |
-| 🟡 Amarelo  | Backbone       |
-| 🔴 Vermelho | Rede interna   |
-
----
-
-## ✅ Conclusão
-
-Este projeto garante:
-
-✔️ Organização da rede
-✔️ Facilidade de manutenção
-✔️ Escalabilidade
-✔️ Alto desempenho
-
-🚀 Infraestrutura moderna baseada em **Cat6 + Fibra Óptica**
-
----
-
-## 📂 Arquivos do Projeto
-
-* 📄 Projeto em PDF
-* 🖼️ Diagrama em PNG
-* 🧩 Arquivo editável (.drawio)
-
----
-
+11. Conclusão
+O projeto atende aos princípios do cabeamento estruturado, proporcionando:
+Organização física e lógica da rede
+Facilidade de manutenção
+Escalabilidade para expansão futura
+Alto desempenho e confiabilidade
+A utilização de padrões como Cat6, backbone em fibra óptica e segmentação por ambi-entes garante uma infraestrutura moderna e adequada para uma pequena empresa.
